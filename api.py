@@ -23,6 +23,16 @@ P2P_HOST_DOWNLOAD_DIR = '/var/tmp/downloads/'
 P2P_HOST_INCOMPLETE_DIR = "/var/tmp/incomplete/"
 
 
+def stop(client, container_id):
+    """
+        停止指定的容器
+    :param container_id:
+    :return:
+    """
+    client.stop(container_id=container_id)
+    return True
+
+
 def get_docker_client(base_url):
     """
         获取 docker 代理
@@ -74,14 +84,20 @@ def create_torrent(path, name):
     return torrent_name
 
 
-@app.route('/')
+@app.route('/', methods=["PUT"])
 def hello_world():
-    dic = {"username": "xutao"}
+    dic = request.form
+    dic = {"task": dic.get("username")}
+
     return jsonify(**dic)
 
 
 @app.route('/torrents/', methods=["POST"])
 def create_torrent():
+    """
+        创建种子
+    :return:
+    """
     result = {"status": "ok", "msg": "get it"}
     if request.method == "POST":
         data = request.form
@@ -103,8 +119,12 @@ def create_torrent():
             return jsonify(**result)
 
 
-@app.route("/containers/", methods=["POST"])
+@app.route("/containers/", methods=["POST", "PUT"])
 def create_container():
+    """
+        创建容器
+    :return:
+    """
     result = {"status": "ok", "msg": "do it"}
     if request.method == "POST":
         data = request.form
@@ -126,6 +146,15 @@ def create_container():
 
             return jsonify(**result)
 
+    if request.method == "PUT":
+        # 目前支持 关闭 操作
+        data = request.form
+        action = data.get("action", "stop")
+        if action == "stop":
+            client = get_docker_client(base_url=DOCKER_API_URL)
+            stop(client=client)
+            result["data"] = {}
+            return jsonify(**result)
 
 if __name__ == '__main__':
     app.run()
