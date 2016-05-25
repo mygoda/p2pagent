@@ -53,6 +53,19 @@ def create_host_config(client):
                                             "%s:/var/lib/transmission-daemon/incomplete" % P2P_HOST_INCOMPLETE_DIR])
 
 
+def create_test_container(container_name):
+    """
+        创建测试容器
+    :param client:
+    :return:
+    """
+    client = get_docker_client(base_url=DOCKER_API_URL)
+    container = client.create_container(image="ubuntu", tty=True, name=container_name)
+    client.start(container=container)
+    return container["Id"]
+
+
+
 def create_run_docker(container_name, image, password):
     """
         创建 transmission docker 容器, 返回容器的 id
@@ -78,22 +91,24 @@ def create_torrent(path, name):
     :return:
     """
     create_cmd = "transmission-create -t %s" \
-                 " %s -p %s.torrent" % (TRACKER_URL, path, name)
+                 "-c %s %s -o %s.torrent" % (TRACKER_URL, name, path, name)
     os.popen(create_cmd)
     torrent_name = "%s.torrent" % name
     return torrent_name
 
 
-@app.route('/', methods=["PUT"])
+@app.route('/', methods=["POST"])
 def hello_world():
     dic = request.form
-    dic = {"task": dic.get("username")}
+    name = dic.get("name")
+    container_id = create_test_container(container_name=name)
+    dic = {"id": container_id}
 
     return jsonify(**dic)
 
 
 @app.route('/torrents/', methods=["POST"])
-def create_torrent():
+def torrents():
     """
         创建种子
     :return:
@@ -120,7 +135,7 @@ def create_torrent():
 
 
 @app.route("/containers/", methods=["POST", "PUT"])
-def create_container():
+def containers():
     """
         创建容器
     :return:
@@ -150,9 +165,10 @@ def create_container():
         # 目前支持 关闭 操作
         data = request.form
         action = data.get("action", "stop")
+        container_id = data.get("container_id", "")
         if action == "stop":
             client = get_docker_client(base_url=DOCKER_API_URL)
-            stop(client=client)
+            stop(client=client, container_id=container_id)
             result["data"] = {}
             return jsonify(**result)
 
