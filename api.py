@@ -59,11 +59,14 @@ def create_test_container(container_name):
     :param client:
     :return:
     """
-    client = get_docker_client(base_url=DOCKER_API_URL)
-    container = client.create_container(image="ubuntu", tty=True, name=container_name)
-    print("hahahahha")
-    client.start(container=container)
-    return container
+    try:
+        client = get_docker_client(base_url=DOCKER_API_URL)
+        container = client.create_container(image="ubuntu", tty=True, name=container_name)
+        print("hahahahha")
+        client.start(container=container)
+        return container
+    except Exception as e:
+        print(e)
 
 
 def create_run_docker(container_name, image, password):
