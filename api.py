@@ -43,14 +43,15 @@ def get_docker_client(base_url):
     return client
 
 
-def create_host_config(client):
+def my_create_host_config(client):
     """
         配置 host
     :param client:
     :return:
     """
     return client.create_host_config(binds=["%s:/var/lib/transmission-daemon/downloads" % P2P_HOST_DOWNLOAD_DIR,
-                                            "%s:/var/lib/transmission-daemon/incomplete" % P2P_HOST_INCOMPLETE_DIR])
+                                            "%s:/var/lib/transmission-daemon/incomplete" % P2P_HOST_INCOMPLETE_DIR],
+                                     port_bindings={"12345/udp": 12345, 12345: 12345,  P2P_PORT: ("0.0.0.0", P2P_PORT)})
 
 
 def create_test_container(container_name):
@@ -62,7 +63,6 @@ def create_test_container(container_name):
     try:
         client = get_docker_client(base_url=DOCKER_API_URL)
         container = client.create_container(image="ubuntu", tty=True, name=container_name)
-        print("hahahahha")
         client.start(container=container)
         return container
     except Exception as e:
@@ -77,12 +77,12 @@ def create_run_docker(container_name, image, password):
     """
     try:
         client = get_docker_client(base_url=DOCKER_API_URL)
-        volume_config = create_host_config(client=client)
+        config = my_create_host_config(client=client)
         container = client.create_container(image=image, name=container_name, ports=[12345, (12345, "udp"), P2P_PORT],
                                             stdin_open=False, tty=False, environment={"ADMIN_PASS": password},
-                                            host_config=volume_config)
+                                            host_config=config)
 
-        client.start(container=container,  port_bindings={"12345/udp": 12345, 12345: 12345,  P2P_PORT: ("0.0.0.0", P2P_PORT)})
+        client.start(container=container)
 
         return container["Id"]
     except Exception as e:
