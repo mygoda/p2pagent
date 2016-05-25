@@ -61,9 +61,9 @@ def create_test_container(container_name):
     """
     client = get_docker_client(base_url=DOCKER_API_URL)
     container = client.create_container(image="ubuntu", tty=True, name=container_name)
+    print("hahahahha")
     client.start(container=container)
     return container
-
 
 
 def create_run_docker(container_name, image, password):
@@ -101,6 +101,8 @@ def create_torrent(path, name):
 def hello_world():
     dic = request.form
     name = dic.get("name")
+    print("*" * 30)
+    print(name)
     container_id = create_test_container(container_name=name)
     dic = {"id": container_id}
 
