@@ -75,15 +75,18 @@ def create_run_docker(container_name, image, password):
     :param kwargs:
     :return:
     """
-    client = get_docker_client(base_url=DOCKER_API_URL)
-    volume_config = create_host_config(client=client)
-    container = client.create_container(image=image, name=container_name, ports=[12345, (12345, "udp"), P2P_PORT],
-                                        stdin_open=False, tty=False, environment={"ADMIN_PASS": password},
-                                        host_config=volume_config)
+    try:
+        client = get_docker_client(base_url=DOCKER_API_URL)
+        volume_config = create_host_config(client=client)
+        container = client.create_container(image=image, name=container_name, ports=[12345, (12345, "udp"), P2P_PORT],
+                                            stdin_open=False, tty=False, environment={"ADMIN_PASS": password},
+                                            host_config=volume_config)
 
-    client.start(container=container,  port_bindings={"12345/udp": 12345, 12345: 12345,  P2P_PORT: ("0.0.0.0", P2P_PORT)})
+        client.start(container=container,  port_bindings={"12345/udp": 12345, 12345: 12345,  P2P_PORT: ("0.0.0.0", P2P_PORT)})
 
-    return container["Id"]
+        return container["Id"]
+    except Exception as e:
+        print(str(e))
 
 
 def create_torrent(path, name):
