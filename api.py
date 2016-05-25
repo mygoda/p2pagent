@@ -93,8 +93,9 @@ def create_torrent(path, name):
     :param name:
     :return:
     """
+    server_path = "%s/name.torrent" % "/var/tmp/torrents"
     create_cmd = "transmission-create -t %s" \
-                 "-c %s %s -o %s.torrent" % (TRACKER_URL, name, path, name)
+                 "-c %s %s -o %s.torrent" % (TRACKER_URL, name, server_path, name)
     os.popen(create_cmd)
     torrent_name = "%s.torrent" % name
     return torrent_name
@@ -104,8 +105,6 @@ def create_torrent(path, name):
 def hello_world():
     dic = request.form
     name = dic.get("name")
-    print("*" * 30)
-    print(name)
     container_id = create_test_container(container_name=name)
     dic = {"id": container_id}
 
