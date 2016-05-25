@@ -16,7 +16,7 @@ TRACKER_URL = "http://205.177.85.132/peertracker/mysql/announce.php"
 
 DOCKER_API_URL = "tcp://127.0.0.1:6732"
 
-P2P_PORT = 9091
+P2P_PORT = 9093
 
 P2P_HOST_DOWNLOAD_DIR = '/var/tmp/downloads/'
 
