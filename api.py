@@ -62,7 +62,7 @@ def create_test_container(container_name):
     client = get_docker_client(base_url=DOCKER_API_URL)
     container = client.create_container(image="ubuntu", tty=True, name=container_name)
     client.start(container=container)
-    return container["Id"]
+    return container
 
 
 
