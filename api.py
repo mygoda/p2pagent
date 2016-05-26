@@ -14,7 +14,7 @@ TOKEN = "TEST"
 
 TRACKER_URL = "http://205.177.85.132/peertracker/mysql/announce.php"
 
-DOCKER_API_URL = "tcp://127.0.0.1:6732"
+DOCKER_API_URL = "unix:///var/run/docker.sock"
 
 P2P_PORT = 9095
 
