@@ -16,7 +16,7 @@ TRACKER_URL = "http://205.177.85.132/peertracker/mysql/announce.php"
 
 DOCKER_API_URL = "tcp://127.0.0.1:6732"
 
-P2P_PORT = 9093
+P2P_PORT = 9095
 
 P2P_HOST_DOWNLOAD_DIR = '/var/tmp/downloads/'
 
@@ -43,7 +43,7 @@ def get_docker_client(base_url):
     return client
 
 
-def my_create_host_config(client):
+def my_create_host_config(client, port):
     """
         配置 host
     :param client:
@@ -51,7 +51,7 @@ def my_create_host_config(client):
     """
     return client.create_host_config(binds=["%s:/var/lib/transmission-daemon/downloads" % P2P_HOST_DOWNLOAD_DIR,
                                             "%s:/var/lib/transmission-daemon/incomplete" % P2P_HOST_INCOMPLETE_DIR],
-                                     port_bindings={"12345/udp": 12345, 12345: 12345,  P2P_PORT: ("0.0.0.0", P2P_PORT)})
+                                     port_bindings={port: ("0.0.0.0", port), "64321/udp": 64321, 64321: 64321})
 
 
 def create_test_container(container_name):
@@ -69,7 +69,7 @@ def create_test_container(container_name):
         print(e)
 
 
-def create_run_docker(container_name, image, password):
+def create_run_docker(container_name, image, password, port):
     """
         创建 transmission docker 容器, 返回容器的 id
     :param kwargs:
@@ -77,8 +77,8 @@ def create_run_docker(container_name, image, password):
     """
     try:
         client = get_docker_client(base_url=DOCKER_API_URL)
-        config = my_create_host_config(client=client)
-        container = client.create_container(image=image, name=container_name, ports=[12345, (12345, "udp"), P2P_PORT],
+        config = my_create_host_config(client=client, port=port)
+        container = client.create_container(image=image, name=container_name, ports=[64321, (64321, "udp"), port],
                                             stdin_open=False, tty=False, environment={"ADMIN_PASS": password},
                                             host_config=config)
 
@@ -156,7 +156,8 @@ def containers():
             container_name = data.get("container_name", "")
             image = data.get("image", "")
             password = data.get("password", "")
-            container_id = create_run_docker(container_name=container_name, password=password, image=image)
+            port = data.get("port", 9091)
+            container_id = create_run_docker(container_name=container_name, password=password, image=image, port=port)
             result["data"] = container_id
             return jsonify(**result)
 
