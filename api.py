@@ -89,16 +89,16 @@ def create_run_docker(container_name, image, password, port):
         print(str(e))
 
 
-def create_torrent(path, name):
+def create_torrent(path, name, comment):
     """
         生成种子, 返回种子的 url
     :param path:
     :param name:
     :return:
     """
-    server_path = "%s/name.torrent" % "/var/tmp/torrents"
+    server_path = "%s/%s" % ("/var/tmp/torrents", name)
     create_cmd = "transmission-create -t %s" \
-                 "-c %s %s -o %s.torrent" % (TRACKER_URL, name, server_path, name)
+                 "-c %s %s -o %s.torrent" % (TRACKER_URL, comment, path, server_path)
     os.popen(create_cmd)
     torrent_name = "%s.torrent" % name
     return torrent_name
@@ -111,6 +111,14 @@ def hello_world():
     container_id = create_test_container(container_name=name)
     dic = {"id": container_id}
 
+    return jsonify(**dic)
+
+
+@app.route('/test/')
+def hello_test():
+    dic = {
+        "test": "yes"
+    }
     return jsonify(**dic)
 
 
@@ -128,7 +136,8 @@ def torrents():
             # 正常的请求
             path = data.get("path", "")
             name = data.get("name", "")
-            torrent = create_torrent(path=path, name=name)
+            comment = data.get("comment", "tests")
+            torrent = create_torrent(path=path, name=name, comment=comment)
             result["data"] = torrent
             return jsonify(**result)
 
