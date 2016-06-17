@@ -6,9 +6,17 @@ from flask import jsonify
 import os
 from flask import request
 import docker
-
+from celery import Celery
+import subprocess
+from subprocess import PIPE
 
 app = Flask(__name__)
+
+app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
+
+celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
+celery.conf.update(app.config)
 
 TOKEN = "TEST"
 
@@ -21,6 +29,29 @@ P2P_PORT = 9095
 P2P_HOST_DOWNLOAD_DIR = '/var/tmp/downloads/'
 
 P2P_HOST_INCOMPLETE_DIR = "/var/tmp/incomplete/"
+
+P2P_CENTER_HOST = ""
+
+
+def task_callback(task_id, status, msg):
+    """
+        任务完成回调
+    :return:
+    """
+
+    url = "http://%s/task/callback/" % P2P_CENTER_HOST
+
+    data = {
+        "type": "create_torrent",
+        "task_id": task_id,
+        "status": status,
+        "msg": msg
+    }
+
+    response = request.post(url, data=data)
+    if response.ok:
+        return True
+    return False
 
 
 def stop(client, container_id):
@@ -89,19 +120,24 @@ def create_run_docker(container_name, image, password, port):
         print(str(e))
 
 
-def create_torrent(path, name, comment):
+@celery.task
+def create_torrent(path, name, comment, task_id):
     """
         生成种子, 返回种子的 url
     :param path:
     :param name:
     :return:
     """
-    server_path = "%s/%s" % ("/var/tmp/torrents", name)
-    create_cmd = "transmission-create -t %s" \
-                 "-c %s %s -o %s.torrent" % (TRACKER_URL, comment, path, server_path)
-    os.popen(create_cmd)
-    torrent_name = "%s.torrent" % name
-    return torrent_name
+    try:
+        server_path = "%s/%s" % ("/var/tmp/torrents", name)
+        create_cmd = "transmission-create -t %s" \
+                     "-c %s %s -o %s.torrent" % (TRACKER_URL, comment, path, server_path)
+        process = subprocess.Popen(create_cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
+        process.communicate()
+        task_callback(task_id=task_id, status="SUCCESS", msg="create torrent ok")
+        return True
+    except Exception as e:
+        task_callback(task_id=task_id, status="ERROR", msg=str(e))
 
 
 @app.route('/', methods=["POST"])
@@ -114,7 +150,7 @@ def hello_world():
     return jsonify(**dic)
 
 
-@app.route('/test/')
+@app.route('/test/', methods=["POST"])
 def hello_test():
     dic = {
         "test": "yes"
@@ -137,8 +173,8 @@ def torrents():
             path = data.get("path", "")
             name = data.get("name", "")
             comment = data.get("comment", "tests")
-            torrent = create_torrent(path=path, name=name, comment=comment)
-            result["data"] = torrent
+            task_id = data.get("task_id")
+            create_torrent.delay(path, name, comment, task_id)
             return jsonify(**result)
 
         else:
