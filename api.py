@@ -12,8 +12,9 @@ from subprocess import PIPE
 
 app = Flask(__name__)
 
-app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
-app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
+# just for other celery task
+app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/2'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/2'
 
 celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
 celery.conf.update(app.config)
@@ -24,7 +25,7 @@ TRACKER_URL = "http://205.177.85.132/peertracker/mysql/announce.php"
 
 DOCKER_API_URL = "unix:///var/run/docker.sock"
 
-P2P_PORT = 9095
+P2P_PORT = 9091
 
 P2P_HOST_DOWNLOAD_DIR = '/var/tmp/downloads/'
 
@@ -133,10 +134,11 @@ def create_torrent(path, name, comment, task_id):
         create_cmd = "transmission-create -t %s" \
                      "-c %s %s -o %s.torrent" % (TRACKER_URL, comment, path, server_path)
         process = subprocess.Popen(create_cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
-        process.communicate()
+        result = process.communicate()
         task_callback(task_id=task_id, status="SUCCESS", msg="create torrent ok")
         return True
     except Exception as e:
+        print(str(e))
         task_callback(task_id=task_id, status="ERROR", msg=str(e))
 
 
