@@ -53,8 +53,6 @@ def task_callback(task_id, status, msg):
     return False
 
 
-
-
 @celery.task
 def create_torrent(path, name, comment, task_id):
     """
@@ -69,14 +67,12 @@ def create_torrent(path, name, comment, task_id):
                      "-c %s %s -o %s.torrent" % (TRACKER_URL, comment, path, server_path)
         process = subprocess.Popen(create_cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
         result = process.communicate()
+        print(result)
         task_callback(task_id=task_id, status="SUCCESS", msg="create torrent ok")
         return True
     except Exception as e:
         print(str(e))
         task_callback(task_id=task_id, status="ERROR", msg=str(e))
-
-
-
 
 
 @app.route('/test/', methods=["POST"])
