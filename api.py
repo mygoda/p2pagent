@@ -67,11 +67,10 @@ def create_torrent(path, name, comment, task_id):
                      "%s %s -o %s.torrent" % (TRACKER_URL, comment, path, server_path)
         process = subprocess.Popen(create_cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
         result = process.communicate()
-        print(result)
         cmd = "chmod 755 %s.torrent" % server_path
         chmod_cmd = subprocess.Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
-        result = chmod_cmd.communicate()
-        print(result)
+        chmod_cmd.communicate()
+
         task_callback(task_id=task_id, status="SUCCESS", msg="create torrent ok")
         return True
     except Exception as e:
