@@ -213,3 +213,26 @@
 [2016-06-26 17:58:16 +0000] [21455] [INFO] Worker exiting (pid: 21455)
 [2016-06-26 17:58:16 +0000] [21461] [INFO] Parent changed, shutting down: <Worker 21461>
 [2016-06-26 17:58:16 +0000] [21461] [INFO] Worker exiting (pid: 21461)
+[2016-06-26 20:06:53 +0000] [25199] [INFO] Starting gunicorn 19.6.0
+[2016-06-26 20:06:53 +0000] [25199] [INFO] Listening at: http://127.0.0.1:5046 (25199)
+[2016-06-26 20:06:53 +0000] [25199] [INFO] Using worker: sync
+[2016-06-26 20:06:53 +0000] [25233] [INFO] Booting worker with pid: 25233
+[2016-06-26 20:06:53 +0000] [25234] [INFO] Booting worker with pid: 25234
+[2016-06-26 20:07:37 +0000] [25199] [INFO] Handling signal: quit
+[2016-06-26 20:07:37 +0000] [25234] [INFO] Worker exiting (pid: 25234)
+[2016-06-26 20:07:37 +0000] [25233] [INFO] Worker exiting (pid: 25233)
+[2016-06-26 20:07:37 +0000] [25199] [INFO] Shutting down: Master
+[2016-06-26 20:08:06 +0000] [25282] [INFO] Starting gunicorn 19.6.0
+[2016-06-26 20:08:06 +0000] [25282] [INFO] Listening at: http://127.0.0.1:5046 (25282)
+[2016-06-26 20:08:06 +0000] [25282] [INFO] Using worker: sync
+[2016-06-26 20:08:06 +0000] [25316] [INFO] Booting worker with pid: 25316
+[2016-06-26 20:08:06 +0000] [25325] [INFO] Booting worker with pid: 25325
+[2016-06-26 20:14:55 +0000] [25282] [INFO] Handling signal: quit
+[2016-06-26 20:14:55 +0000] [25325] [INFO] Worker exiting (pid: 25325)
+[2016-06-26 20:14:55 +0000] [25316] [INFO] Worker exiting (pid: 25316)
+[2016-06-26 20:14:55 +0000] [25282] [INFO] Shutting down: Master
+[2016-06-26 20:14:57 +0000] [25548] [INFO] Starting gunicorn 19.6.0
+[2016-06-26 20:14:57 +0000] [25548] [INFO] Listening at: http://127.0.0.1:5046 (25548)
+[2016-06-26 20:14:57 +0000] [25548] [INFO] Using worker: sync
+[2016-06-26 20:14:57 +0000] [25584] [INFO] Booting worker with pid: 25584
+[2016-06-26 20:14:57 +0000] [25585] [INFO] Booting worker with pid: 25585
