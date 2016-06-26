@@ -1,0 +1,215 @@
+[2016-06-22 20:47:09 +0000] [8382] [INFO] Starting gunicorn 19.6.0
+[2016-06-22 20:47:09 +0000] [8382] [ERROR] Connection in use: ('0.0.0.0', 5045)
+[2016-06-22 20:47:09 +0000] [8382] [ERROR] Retrying in 1 second.
+[2016-06-22 20:47:10 +0000] [8382] [ERROR] Connection in use: ('0.0.0.0', 5045)
+[2016-06-22 20:47:10 +0000] [8382] [ERROR] Retrying in 1 second.
+[2016-06-22 20:47:11 +0000] [8382] [ERROR] Connection in use: ('0.0.0.0', 5045)
+[2016-06-22 20:47:11 +0000] [8382] [ERROR] Retrying in 1 second.
+[2016-06-22 20:47:12 +0000] [8382] [ERROR] Connection in use: ('0.0.0.0', 5045)
+[2016-06-22 20:47:12 +0000] [8382] [ERROR] Retrying in 1 second.
+[2016-06-22 20:47:13 +0000] [8382] [ERROR] Connection in use: ('0.0.0.0', 5045)
+[2016-06-22 20:47:13 +0000] [8382] [ERROR] Retrying in 1 second.
+[2016-06-22 20:47:14 +0000] [8382] [ERROR] Can't connect to ('0.0.0.0', 5045)
+[2016-06-22 20:47:55 +0000] [8779] [INFO] Starting gunicorn 19.6.0
+[2016-06-22 20:47:55 +0000] [8779] [ERROR] Connection in use: ('0.0.0.0', 5045)
+[2016-06-22 20:47:55 +0000] [8779] [ERROR] Retrying in 1 second.
+[2016-06-22 20:47:56 +0000] [8779] [ERROR] Connection in use: ('0.0.0.0', 5045)
+[2016-06-22 20:47:56 +0000] [8779] [ERROR] Retrying in 1 second.
+[2016-06-22 20:47:57 +0000] [8779] [ERROR] Connection in use: ('0.0.0.0', 5045)
+[2016-06-22 20:47:57 +0000] [8779] [ERROR] Retrying in 1 second.
+[2016-06-22 20:47:58 +0000] [8779] [ERROR] Connection in use: ('0.0.0.0', 5045)
+[2016-06-22 20:47:58 +0000] [8779] [ERROR] Retrying in 1 second.
+[2016-06-22 20:47:59 +0000] [8779] [ERROR] Connection in use: ('0.0.0.0', 5045)
+[2016-06-22 20:47:59 +0000] [8779] [ERROR] Retrying in 1 second.
+[2016-06-22 20:48:00 +0000] [8779] [ERROR] Can't connect to ('0.0.0.0', 5045)
+[2016-06-22 20:48:39 +0000] [8791] [INFO] Starting gunicorn 19.6.0
+[2016-06-22 20:48:39 +0000] [8791] [INFO] Listening at: http://0.0.0.0:5046 (8791)
+[2016-06-22 20:48:39 +0000] [8791] [INFO] Using worker: sync
+[2016-06-22 20:48:39 +0000] [8796] [INFO] Booting worker with pid: 8796
+[2016-06-22 20:48:39 +0000] [8797] [INFO] Booting worker with pid: 8797
+[2016-06-22 20:48:39 +0000] [8802] [INFO] Booting worker with pid: 8802
+[2016-06-22 20:48:39 +0000] [8805] [INFO] Booting worker with pid: 8805
+[2016-06-22 20:49:17 +0000] [8791] [INFO] Handling signal: int
+[2016-06-22 20:49:17 +0000] [8802] [INFO] Worker exiting (pid: 8802)
+[2016-06-22 20:49:17 +0000] [8796] [INFO] Worker exiting (pid: 8796)
+[2016-06-22 20:49:17 +0000] [8797] [INFO] Worker exiting (pid: 8797)
+[2016-06-22 20:49:17 +0000] [8805] [INFO] Worker exiting (pid: 8805)
+[2016-06-22 20:49:17 +0000] [8791] [INFO] Shutting down: Master
+[2016-06-22 20:50:34 +0000] [8833] [INFO] Starting gunicorn 19.6.0
+[2016-06-22 20:50:34 +0000] [8833] [INFO] Listening at: http://0.0.0.0:5046 (8833)
+[2016-06-22 20:50:34 +0000] [8833] [INFO] Using worker: sync
+[2016-06-22 20:50:34 +0000] [8838] [INFO] Booting worker with pid: 8838
+[2016-06-22 20:50:34 +0000] [8841] [INFO] Booting worker with pid: 8841
+[2016-06-22 20:50:34 +0000] [8842] [INFO] Booting worker with pid: 8842
+[2016-06-22 20:50:34 +0000] [8845] [INFO] Booting worker with pid: 8845
+[2016-06-22 20:50:43 +0000] [8833] [INFO] Handling signal: int
+[2016-06-22 20:50:43 +0000] [8845] [INFO] Worker exiting (pid: 8845)
+[2016-06-22 20:50:43 +0000] [8838] [INFO] Worker exiting (pid: 8838)
+[2016-06-22 20:50:43 +0000] [8841] [INFO] Worker exiting (pid: 8841)
+[2016-06-22 20:50:43 +0000] [8842] [INFO] Worker exiting (pid: 8842)
+[2016-06-22 20:50:43 +0000] [8833] [INFO] Shutting down: Master
+[2016-06-22 20:50:53 +0000] [8851] [INFO] Starting gunicorn 19.6.0
+[2016-06-22 20:50:53 +0000] [8851] [INFO] Listening at: http://0.0.0.0:5046 (8851)
+[2016-06-22 20:50:53 +0000] [8851] [INFO] Using worker: sync
+[2016-06-22 20:50:53 +0000] [8856] [INFO] Booting worker with pid: 8856
+[2016-06-22 20:50:53 +0000] [8857] [INFO] Booting worker with pid: 8857
+[2016-06-22 20:50:53 +0000] [8860] [INFO] Booting worker with pid: 8860
+[2016-06-22 20:50:53 +0000] [8865] [INFO] Booting worker with pid: 8865
+[2016-06-22 20:52:06 +0000] [8851] [INFO] Handling signal: int
+[2016-06-22 20:52:06 +0000] [8856] [INFO] Worker exiting (pid: 8856)
+[2016-06-22 20:52:06 +0000] [8857] [INFO] Worker exiting (pid: 8857)
+[2016-06-22 20:52:06 +0000] [8865] [INFO] Worker exiting (pid: 8865)
+[2016-06-22 20:52:06 +0000] [8860] [INFO] Worker exiting (pid: 8860)
+[2016-06-22 20:52:06 +0000] [8851] [INFO] Shutting down: Master
+[2016-06-22 20:52:10 +0000] [8933] [INFO] Starting gunicorn 19.6.0
+[2016-06-22 20:52:10 +0000] [8933] [INFO] Listening at: http://0.0.0.0:5046 (8933)
+[2016-06-22 20:52:10 +0000] [8933] [INFO] Using worker: sync
+[2016-06-22 20:52:10 +0000] [8938] [INFO] Booting worker with pid: 8938
+[2016-06-22 20:52:10 +0000] [8941] [INFO] Booting worker with pid: 8941
+[2016-06-22 20:52:10 +0000] [8944] [INFO] Booting worker with pid: 8944
+[2016-06-22 20:52:10 +0000] [8947] [INFO] Booting worker with pid: 8947
+[2016-06-22 20:52:57 +0000] [8933] [INFO] Handling signal: term
+[2016-06-22 20:52:57 +0000] [8941] [INFO] Worker exiting (pid: 8941)
+[2016-06-22 20:52:57 +0000] [8944] [INFO] Worker exiting (pid: 8944)
+[2016-06-22 20:52:57 +0000] [8938] [INFO] Worker exiting (pid: 8938)
+[2016-06-22 20:52:57 +0000] [8947] [INFO] Worker exiting (pid: 8947)
+[2016-06-22 20:52:57 +0000] [8933] [INFO] Shutting down: Master
+[2016-06-22 21:08:12 +0000] [9109] [INFO] Starting gunicorn 19.6.0
+[2016-06-22 21:08:12 +0000] [9109] [INFO] Listening at: http://0.0.0.0:5046 (9109)
+[2016-06-22 21:08:12 +0000] [9109] [INFO] Using worker: sync
+[2016-06-22 21:08:12 +0000] [9119] [INFO] Booting worker with pid: 9119
+[2016-06-22 21:08:12 +0000] [9122] [INFO] Booting worker with pid: 9122
+[2016-06-22 21:08:12 +0000] [9123] [INFO] Booting worker with pid: 9123
+[2016-06-22 21:08:12 +0000] [9128] [INFO] Booting worker with pid: 9128
+[2016-06-22 21:09:17 +0000] [9172] [INFO] Starting gunicorn 19.6.0
+[2016-06-22 21:09:17 +0000] [9172] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-22 21:09:17 +0000] [9172] [ERROR] Retrying in 1 second.
+[2016-06-22 21:09:18 +0000] [9172] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-22 21:09:18 +0000] [9172] [ERROR] Retrying in 1 second.
+[2016-06-22 21:09:19 +0000] [9172] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-22 21:09:19 +0000] [9172] [ERROR] Retrying in 1 second.
+[2016-06-22 21:09:20 +0000] [9172] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-22 21:09:20 +0000] [9172] [ERROR] Retrying in 1 second.
+[2016-06-22 21:09:21 +0000] [9172] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-22 21:09:21 +0000] [9172] [ERROR] Retrying in 1 second.
+[2016-06-22 21:09:22 +0000] [9172] [ERROR] Can't connect to ('127.0.0.1', 5046)
+[2016-06-22 21:10:19 +0000] [9233] [INFO] Starting gunicorn 19.6.0
+[2016-06-22 21:10:19 +0000] [9233] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-22 21:10:19 +0000] [9233] [ERROR] Retrying in 1 second.
+[2016-06-22 21:10:20 +0000] [9233] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-22 21:10:20 +0000] [9233] [ERROR] Retrying in 1 second.
+[2016-06-22 21:10:21 +0000] [9233] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-22 21:10:21 +0000] [9233] [ERROR] Retrying in 1 second.
+[2016-06-22 21:10:22 +0000] [9233] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-22 21:10:22 +0000] [9233] [ERROR] Retrying in 1 second.
+[2016-06-22 21:10:23 +0000] [9233] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-22 21:10:23 +0000] [9233] [ERROR] Retrying in 1 second.
+[2016-06-22 21:10:24 +0000] [9233] [ERROR] Can't connect to ('127.0.0.1', 5046)
+[2016-06-22 21:10:34 +0000] [9109] [INFO] Handling signal: term
+[2016-06-22 21:10:34 +0000] [9122] [INFO] Worker exiting (pid: 9122)
+[2016-06-22 21:10:34 +0000] [9128] [INFO] Worker exiting (pid: 9128)
+[2016-06-22 21:10:34 +0000] [9123] [INFO] Worker exiting (pid: 9123)
+[2016-06-22 21:10:34 +0000] [9119] [INFO] Worker exiting (pid: 9119)
+[2016-06-22 21:10:34 +0000] [9109] [INFO] Shutting down: Master
+[2016-06-26 17:47:19 +0000] [21173] [INFO] Starting gunicorn 19.6.0
+[2016-06-26 17:47:19 +0000] [21173] [INFO] Listening at: http://127.0.0.1:5046 (21173)
+[2016-06-26 17:47:19 +0000] [21173] [INFO] Using worker: sync
+[2016-06-26 17:47:19 +0000] [21190] [INFO] Booting worker with pid: 21190
+[2016-06-26 17:47:19 +0000] [21197] [INFO] Booting worker with pid: 21197
+[2016-06-26 17:47:19 +0000] [21205] [INFO] Booting worker with pid: 21205
+[2016-06-26 17:47:19 +0000] [21206] [INFO] Booting worker with pid: 21206
+[2016-06-26 17:47:20 +0000] [21225] [INFO] Starting gunicorn 19.6.0
+[2016-06-26 17:47:20 +0000] [21225] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:47:20 +0000] [21225] [ERROR] Retrying in 1 second.
+[2016-06-26 17:47:21 +0000] [21225] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:47:21 +0000] [21225] [ERROR] Retrying in 1 second.
+[2016-06-26 17:47:22 +0000] [21225] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:47:22 +0000] [21225] [ERROR] Retrying in 1 second.
+[2016-06-26 17:47:22 +0000] [21240] [INFO] Starting gunicorn 19.6.0
+[2016-06-26 17:47:22 +0000] [21240] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:47:22 +0000] [21240] [ERROR] Retrying in 1 second.
+[2016-06-26 17:47:23 +0000] [21225] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:47:23 +0000] [21225] [ERROR] Retrying in 1 second.
+[2016-06-26 17:47:23 +0000] [21240] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:47:23 +0000] [21240] [ERROR] Retrying in 1 second.
+[2016-06-26 17:47:24 +0000] [21225] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:47:24 +0000] [21225] [ERROR] Retrying in 1 second.
+[2016-06-26 17:47:24 +0000] [21240] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:47:24 +0000] [21240] [ERROR] Retrying in 1 second.
+[2016-06-26 17:47:25 +0000] [21225] [ERROR] Can't connect to ('127.0.0.1', 5046)
+[2016-06-26 17:47:25 +0000] [21240] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:47:25 +0000] [21240] [ERROR] Retrying in 1 second.
+[2016-06-26 17:47:26 +0000] [21256] [INFO] Starting gunicorn 19.6.0
+[2016-06-26 17:47:26 +0000] [21256] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:47:26 +0000] [21256] [ERROR] Retrying in 1 second.
+[2016-06-26 17:47:26 +0000] [21240] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:47:26 +0000] [21240] [ERROR] Retrying in 1 second.
+[2016-06-26 17:47:27 +0000] [21256] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:47:27 +0000] [21256] [ERROR] Retrying in 1 second.
+[2016-06-26 17:47:27 +0000] [21240] [ERROR] Can't connect to ('127.0.0.1', 5046)
+[2016-06-26 17:47:28 +0000] [21256] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:47:28 +0000] [21256] [ERROR] Retrying in 1 second.
+[2016-06-26 17:47:29 +0000] [21256] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:47:29 +0000] [21256] [ERROR] Retrying in 1 second.
+[2016-06-26 17:47:30 +0000] [21256] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:47:30 +0000] [21256] [ERROR] Retrying in 1 second.
+[2016-06-26 17:47:31 +0000] [21256] [ERROR] Can't connect to ('127.0.0.1', 5046)
+[2016-06-26 17:54:49 +0000] [21190] [INFO] Parent changed, shutting down: <Worker 21190>
+[2016-06-26 17:54:49 +0000] [21190] [INFO] Worker exiting (pid: 21190)
+[2016-06-26 17:54:49 +0000] [21197] [INFO] Parent changed, shutting down: <Worker 21197>
+[2016-06-26 17:54:49 +0000] [21197] [INFO] Worker exiting (pid: 21197)
+[2016-06-26 17:54:49 +0000] [21206] [INFO] Parent changed, shutting down: <Worker 21206>
+[2016-06-26 17:54:49 +0000] [21206] [INFO] Worker exiting (pid: 21206)
+[2016-06-26 17:54:49 +0000] [21205] [INFO] Parent changed, shutting down: <Worker 21205>
+[2016-06-26 17:54:49 +0000] [21205] [INFO] Worker exiting (pid: 21205)
+[2016-06-26 17:55:46 +0000] [21414] [INFO] Starting gunicorn 19.6.0
+[2016-06-26 17:55:46 +0000] [21414] [INFO] Listening at: http://127.0.0.1:5046 (21414)
+[2016-06-26 17:55:46 +0000] [21414] [INFO] Using worker: sync
+[2016-06-26 17:55:46 +0000] [21433] [INFO] Booting worker with pid: 21433
+[2016-06-26 17:55:46 +0000] [21441] [INFO] Booting worker with pid: 21441
+[2016-06-26 17:55:46 +0000] [21455] [INFO] Booting worker with pid: 21455
+[2016-06-26 17:55:46 +0000] [21461] [INFO] Booting worker with pid: 21461
+[2016-06-26 17:55:47 +0000] [21465] [INFO] Starting gunicorn 19.6.0
+[2016-06-26 17:55:47 +0000] [21465] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:55:47 +0000] [21465] [ERROR] Retrying in 1 second.
+[2016-06-26 17:55:48 +0000] [21465] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:55:48 +0000] [21465] [ERROR] Retrying in 1 second.
+[2016-06-26 17:55:49 +0000] [21465] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:55:49 +0000] [21465] [ERROR] Retrying in 1 second.
+[2016-06-26 17:55:50 +0000] [21481] [INFO] Starting gunicorn 19.6.0
+[2016-06-26 17:55:50 +0000] [21481] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:55:50 +0000] [21481] [ERROR] Retrying in 1 second.
+[2016-06-26 17:55:50 +0000] [21465] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:55:50 +0000] [21465] [ERROR] Retrying in 1 second.
+[2016-06-26 17:55:51 +0000] [21481] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:55:51 +0000] [21481] [ERROR] Retrying in 1 second.
+[2016-06-26 17:55:51 +0000] [21465] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:55:51 +0000] [21465] [ERROR] Retrying in 1 second.
+[2016-06-26 17:55:52 +0000] [21481] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:55:52 +0000] [21481] [ERROR] Retrying in 1 second.
+[2016-06-26 17:55:52 +0000] [21465] [ERROR] Can't connect to ('127.0.0.1', 5046)
+[2016-06-26 17:55:53 +0000] [21481] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:55:53 +0000] [21481] [ERROR] Retrying in 1 second.
+[2016-06-26 17:55:53 +0000] [21496] [INFO] Starting gunicorn 19.6.0
+[2016-06-26 17:55:53 +0000] [21496] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:55:53 +0000] [21496] [ERROR] Retrying in 1 second.
+[2016-06-26 17:55:54 +0000] [21481] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:55:54 +0000] [21481] [ERROR] Retrying in 1 second.
+[2016-06-26 17:55:54 +0000] [21496] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:55:54 +0000] [21496] [ERROR] Retrying in 1 second.
+[2016-06-26 17:55:55 +0000] [21481] [ERROR] Can't connect to ('127.0.0.1', 5046)
+[2016-06-26 17:55:55 +0000] [21496] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:55:55 +0000] [21496] [ERROR] Retrying in 1 second.
+[2016-06-26 17:55:56 +0000] [21496] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:55:56 +0000] [21496] [ERROR] Retrying in 1 second.
+[2016-06-26 17:55:57 +0000] [21496] [ERROR] Connection in use: ('127.0.0.1', 5046)
+[2016-06-26 17:55:57 +0000] [21496] [ERROR] Retrying in 1 second.
+[2016-06-26 17:55:58 +0000] [21496] [ERROR] Can't connect to ('127.0.0.1', 5046)
+[2016-06-26 17:58:16 +0000] [21433] [INFO] Parent changed, shutting down: <Worker 21433>
+[2016-06-26 17:58:16 +0000] [21433] [INFO] Worker exiting (pid: 21433)
+[2016-06-26 17:58:16 +0000] [21441] [INFO] Parent changed, shutting down: <Worker 21441>
+[2016-06-26 17:58:16 +0000] [21441] [INFO] Worker exiting (pid: 21441)
+[2016-06-26 17:58:16 +0000] [21455] [INFO] Parent changed, shutting down: <Worker 21455>
+[2016-06-26 17:58:16 +0000] [21455] [INFO] Worker exiting (pid: 21455)
+[2016-06-26 17:58:16 +0000] [21461] [INFO] Parent changed, shutting down: <Worker 21461>
+[2016-06-26 17:58:16 +0000] [21461] [INFO] Worker exiting (pid: 21461)
