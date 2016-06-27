@@ -99,7 +99,7 @@ def torrents():
         if token == TOKEN:
             # 正常的请求
             path = data.get("path", "")
-            name = data.get("name", "")
+            name = data.get("vm_name", "")
             comment = data.get("comment", "tests")
             task_id = data.get("task_id")
             create_torrent.delay(path, name, comment, task_id)
