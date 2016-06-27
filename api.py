@@ -13,8 +13,8 @@ from subprocess import PIPE
 app = Flask(__name__)
 
 # just for other celery task
-app.config['CELERY_BROKER_URL'] = 'redis://:cds-china@localhost:6379/2'
-app.config['CELERY_RESULT_BACKEND'] = 'redis://cds-china@localhost:6379/2'
+app.config['CELERY_BROKER_URL'] = 'redis://:@localhost:6379/2'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://:@localhost:6379/2'
 
 celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
 celery.conf.update(app.config)
