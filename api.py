@@ -5,7 +5,7 @@ from flask import Flask
 from flask import jsonify
 import os
 from flask import request
-
+import requests
 from celery import Celery
 import subprocess
 from subprocess import PIPE
@@ -47,7 +47,7 @@ def task_callback(task_id, status, msg):
         "msg": msg
     }
 
-    response = request.post(url, data=data)
+    response = requests.post(url, data=data)
     if response.ok:
         return True
     return False
