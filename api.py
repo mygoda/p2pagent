@@ -29,7 +29,7 @@ P2P_HOST_DOWNLOAD_DIR = '/var/tmp/downloads/'
 
 P2P_HOST_INCOMPLETE_DIR = "/var/tmp/incomplete/"
 
-P2P_CENTER_HOST = ""
+P2P_CENTER_HOST = "101.251.255.234:9999"
 
 
 def task_callback(task_id, status, msg):
