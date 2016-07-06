@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # __author__ = xutao
-
+import time
 from flask import Flask
 from flask import jsonify
 import os
@@ -54,7 +54,14 @@ def task_callback(task_id, status, msg):
 
 
 @celery.task
-def create_torrent(path, name, comment, task_id):
+def test_test():
+    print("yyyyyyyyyy")
+    time.sleep(2)
+    print("hhhhhhhh")
+
+
+@celery.task
+def create_torrent(path, name, comment, task_id, des_id):
     """
         生成种子, 返回种子的 url
     :param path:
@@ -62,7 +69,8 @@ def create_torrent(path, name, comment, task_id):
     :return:
     """
     try:
-        server_path = "%s/%s" % ("/var/tmp/torrents", name)
+        torrent_name = "%s%s" % (name, des_id)
+        server_path = "%s/%s" % ("/var/tmp/torrents", torrent_name)
         create_cmd = "transmission-create -t %s -c " \
                      "%s %s -o %s.torrent" % (TRACKER_URL, comment, path, server_path)
         process = subprocess.Popen(create_cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
@@ -71,7 +79,6 @@ def create_torrent(path, name, comment, task_id):
 	cmd = "chmod 755 %s.torrent" % server_path
         chmod_cmd = subprocess.Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
         chmod_cmd.communicate()
-
         task_callback(task_id=task_id, status="SUCCESS", msg="create torrent ok")
         return True
     except Exception as e:
@@ -103,7 +110,8 @@ def torrents():
             name = data.get("vm_name", "")
             comment = data.get("comment", "tests")
             task_id = data.get("task_id")
-            create_torrent.delay(path, name, comment, task_id)
+            des_id = data.get("des_site_id")
+            create_torrent.delay(path, name, comment, task_id, des_id)
             return jsonify(**result)
 
         else:
