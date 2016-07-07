@@ -75,7 +75,7 @@ def create_torrent(path, name, comment, task_id, des_id):
                      "%s %s -o %s.torrent" % (TRACKER_URL, comment, path, server_path)
         process = subprocess.Popen(create_cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
         result = process.communicate()
-        print("result %s" % result)
+        print("result success is isisisis")
 	cmd = "chmod 755 %s.torrent" % server_path
         chmod_cmd = subprocess.Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
         chmod_cmd.communicate()
