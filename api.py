@@ -13,15 +13,15 @@ from subprocess import PIPE
 app = Flask(__name__)
 
 # just for other celery task
-app.config['CELERY_BROKER_URL'] = 'redis://:cds-china@localhost:6379/2'
-app.config['CELERY_RESULT_BACKEND'] = 'redis://:cds-china@localhost:6379/2'
+app.config['CELERY_BROKER_URL'] = 'redis://:@localhost:6379/2'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://:@localhost:6379/2'
 
 celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
 celery.conf.update(app.config)
 
 TOKEN = "p2pagent"
 
-TRACKER_URL = "http://205.177.85.132/peertracker/mysql/announce.php"
+TRACKER_URL = ""
 
 P2P_PORT = 9091
 
@@ -29,7 +29,7 @@ P2P_HOST_DOWNLOAD_DIR = '/var/tmp/downloads/'
 
 P2P_HOST_INCOMPLETE_DIR = "/var/tmp/incomplete/"
 
-P2P_CENTER_HOST = "101.251.255.234:9999"
+P2P_CENTER_HOST = ""
 
 
 def task_callback(task_id, status, msg):
@@ -75,6 +75,7 @@ def create_torrent(path, name, comment, task_id, des_id):
                      "%s %s -o %s.torrent" % (TRACKER_URL, comment, path, server_path)
         process = subprocess.Popen(create_cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
         result = process.communicate()
+
         print("result success is isisisis")
 	cmd = "chmod 755 %s.torrent" % server_path
         chmod_cmd = subprocess.Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
