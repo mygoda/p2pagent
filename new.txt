@@ -7,7 +7,7 @@ MarkupSafe==0.23
 PAM==0.4.2
 PyYAML==3.11
 Twisted-Core==13.2.0
-Werkzeug==0.11.10
+Werkzeug==0.15.3
 amqp==1.4.9
 aniso8601==1.1.0
 anyjson==0.3.3
