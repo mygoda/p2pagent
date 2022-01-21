@@ -23,7 +23,7 @@ enum==0.4.6
 flask-restful-swagger==0.19
 gunicorn==19.6.0
 html5lib==0.999
-ipython==1.2.1
+ipython==7.16.3
 itsdangerous==0.24
 kombu==3.0.35
 meld3==0.6.10
