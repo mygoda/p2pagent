@@ -51,7 +51,7 @@ requests==2.10.0
 simplegeneric==0.8.1
 six==1.5.2
 ssh-import-id==3.21
-supervisor==3.0b2
+supervisor==3.0.1
 transmission-fluid==0.6
 transmissionrpc==0.11
 urllib3==1.7.1
