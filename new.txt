@@ -22,7 +22,7 @@ decorator==3.4.0
 enum==0.4.6
 flask-restful-swagger==0.19
 gunicorn==19.6.0
-html5lib==0.999
+html5lib==0.999999999
 ipython==1.2.1
 itsdangerous==0.24
 kombu==3.0.35
